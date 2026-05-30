@@ -19,14 +19,6 @@ MOTOR* motorCreatePwm(uint8_t pin1,uint8_t pin2,uint8_t pwmPin){
 	return out;
 }
 
-MOTOR* motorCreatePwmPwm(uint8_t pin1,uint8_t pin2){
-	MOTOR* out=(MOTOR*)malloc(sizeof(MOTOR));
-	out->pin1=pin1;
-	out->pin2=pin2;
-	out->pwmPin=_L298N_N_PWMPIN;
-	return out;
-}
-
 void motorInit(MOTOR* motor){
 	pinMode(motor->pin1,OUTPUT);
 	pinMode(motor->pin2,OUTPUT);
@@ -56,13 +48,4 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod){
 void motorSetPwm(MOTOR* motor,uint16_t pwm){
 	//是PWM型馬達才給調速
 	if(motor->pwmPin & _L298N_N_PWMPIN) analogWrite(motor->pwmPin,pwm);
-}
-
-void motorSetPwmPwm(MOTOR* motor,uint16_t pwm){
-	if(motor->pwmPin-_L298N_N_PWMPIN==CW){
-		analogWrite(motor->pin2,pwm);
-	}
-	else if(motor->pwmPin-_L298N_N_PWMPIN==CCW){
-		analogWrite(motor->pin1,pwm);
-	}
 }

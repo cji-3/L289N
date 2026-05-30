@@ -49,17 +49,6 @@ MOTOR* motorCreate(uint8_t pin1,uint8_t pin2);
 MOTOR* motorCreatePwm(uint8_t pin1,uint8_t pin2,uint8_t pwmPin);
 
 /**
- * \brief 創建一個使用L298N的IN1/2/3/4實現PWM波調速的馬達(非常規方式)，若要控制它的速度請使用`motorSetPwmPwm();`
- *
- * 範例：`MOTOR* car=motorCreatePwmPwm(2,3);`
- *
- * \param pin1 連接至L298N的IN1/IN3之腳位(必須使用PWM腳)
- * \param pin2 連接至L298N的IN2/IN4之腳位(必須使用PWM腳)
- * \return MOTOR結構之指標
- */
-MOTOR* motorCreatePwmPwm(uint8_t pin1,uint8_t pin2);
-
-/**
  * \brief 初始化馬達並且預設不轉速度為0
  * \param MOTOR結構之指標
  */
@@ -84,31 +73,8 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod);
  */
 void motorSetPwm(MOTOR* motor,uint16_t pwm);
 
-/**
- * \brief 設定非常規之馬達之速度
- *
- * \param motor MOTOR結構之指標
- * \param pwm 轉速(PWM)
- */
-void motorSetPwmPwm(MOTOR* motor,uint16_t pwm);
-
 #ifdef __cplusplus
 }
 #endif
 
 #endif
-
-/**
- * # 更新紀錄：
- *
- * ## V2.0.1
- * - 修改了錯誤的註解
- * - 新增此log
- *
- * ## V2.0.0
- * - 新增了非常規馬達的控制方式
- *
- * ## V1.0.0
- * - 穩定的版本
- * - PWM控制
- */
