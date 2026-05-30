@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Arduino-Absolute",
+            "includePath": [
+                "${workspaceFolder}/**",
+                // 1. 強制 VS Code 深入隱藏資料夾去抓所有官方板子的 H 檔
+                "C:/Users/cji_asus/AppData/Local/Arduino15/packages/**",
+            ],
+            "defines": [
+                "ARDUINO=10800",
+                "__AVR_ATmega328P__"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "windows-gcc-avr"
+        }
+    ],
+    "version": 4
+}
