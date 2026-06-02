@@ -1,4 +1,4 @@
-//版本：V2.0.1
+//版本：2.0.2
 
 #ifndef _L298N_H_
 #define _L298N_H_
@@ -100,6 +100,11 @@ void motorSetPwmPwm(MOTOR* motor,uint16_t pwm);
 
 /**
  * # 更新紀錄：
+ *
+ * ## V2.0.2
+ * - 修復了`motorSetPwm`的嚴重bug。
+ * - 新增說明文檔。
+ * - 非常規函式(`PwmPwm`等)仍在測試，暫不建議使用。
  *
  * ## V2.0.1
  * - 修改了錯誤的註解

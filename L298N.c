@@ -55,7 +55,7 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod){
 
 void motorSetPwm(MOTOR* motor,uint16_t pwm){
 	//是PWM型馬達才給調速
-	if(motor->pwmPin & _L298N_N_PWMPIN) analogWrite(motor->pwmPin,pwm);
+	if(!(motor->pwmPin>>7)) analogWrite(motor->pwmPin,pwm);
 }
 
 void motorSetPwmPwm(MOTOR* motor,uint16_t pwm){
