@@ -1,11 +1,11 @@
-//版本：2.0.2
+//版本：2.0.3
 
 #ifndef _L298N_H_
 #define _L298N_H_
 
 #include<stdint.h>
 
-#define _L298N_N_PWMPIN (0b10000000)
+#define _L298N_N_PWMPIN (uint8_t)(0b10000000)
 
 #ifdef __cplusplus
 extern "C"{
@@ -49,7 +49,7 @@ MOTOR* motorCreate(uint8_t pin1,uint8_t pin2);
 MOTOR* motorCreatePwm(uint8_t pin1,uint8_t pin2,uint8_t pwmPin);
 
 /**
- * \brief 創建一個使用L298N的IN1/2/3/4實現PWM波調速的馬達(非常規方式)，若要控制它的速度請使用`motorSetPwmPwm();`
+ * \brief (上不建議使用)創建一個使用L298N的IN1/2/3/4實現PWM波調速的馬達(非常規方式)，若要控制它的速度請使用`motorSetPwmPwm();`
  *
  * 範例：`MOTOR* car=motorCreatePwmPwm(2,3);`
  *
@@ -85,7 +85,7 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod);
 void motorSetPwm(MOTOR* motor,uint16_t pwm);
 
 /**
- * \brief 設定非常規之馬達之速度
+ * \brief (尚不建議使用)設定非常規之馬達之速度
  *
  * \param motor MOTOR結構之指標
  * \param pwm 轉速(PWM)
@@ -100,6 +100,10 @@ void motorSetPwmPwm(MOTOR* motor,uint16_t pwm);
 
 /**
  * # 更新紀錄：
+ *
+ * ## v2.0.3
+ * - 2.0.2版本並沒有修好`motorSetPwm`，現在應該修好了(小聲...)。
+ * - 非常規函式(`PwmPwm`等)仍在測試，暫不建議使用。
  *
  * ## V2.0.2
  * - 修復了`motorSetPwm`的嚴重bug。

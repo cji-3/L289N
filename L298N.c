@@ -39,7 +39,7 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod){
 	if(turnMod==CW){
 		digitalWrite(motor->pin1,LOW);
 		digitalWrite(motor->pin2,HIGH);
-		motor->pwmPin=_L298N_N_PWMPIN | CW;		//motorSetPwmPwm而記錄當前轉向
+		motor->pwmPin=_L298N_N_PWMPIN | CW;		//為了motorSetPwmPwm而記錄當前轉向
 	}
 	else if(turnMod==CCW){
 		digitalWrite(motor->pin1,HIGH);
@@ -55,7 +55,7 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod){
 
 void motorSetPwm(MOTOR* motor,uint16_t pwm){
 	//是PWM型馬達才給調速
-	if(!(motor->pwmPin>>7)) analogWrite(motor->pwmPin,pwm);
+	if(motor->pwmPin < _L298N_N_PWMPIN) analogWrite(motor->pwmPin,pwm);
 }
 
 void motorSetPwmPwm(MOTOR* motor,uint16_t pwm){
