@@ -1,4 +1,4 @@
-//版本：2.0.3
+//版本：2.1.0
 
 #ifndef _L298N_H_
 #define _L298N_H_
@@ -49,17 +49,6 @@ MOTOR* motorCreate(uint8_t pin1,uint8_t pin2);
 MOTOR* motorCreatePwm(uint8_t pin1,uint8_t pin2,uint8_t pwmPin);
 
 /**
- * \brief (上不建議使用)創建一個使用L298N的IN1/2/3/4實現PWM波調速的馬達(非常規方式)，若要控制它的速度請使用`motorSetPwmPwm();`
- *
- * 範例：`MOTOR* car=motorCreatePwmPwm(2,3);`
- *
- * \param pin1 連接至L298N的IN1/IN3之腳位(必須使用PWM腳)
- * \param pin2 連接至L298N的IN2/IN4之腳位(必須使用PWM腳)
- * \return MOTOR結構之指標
- */
-MOTOR* motorCreatePwmPwm(uint8_t pin1,uint8_t pin2);
-
-/**
  * \brief 初始化馬達並且預設不轉速度為0
  * \param MOTOR結構之指標
  */
@@ -84,14 +73,6 @@ void motorSet(MOTOR* motor,MOTOR_TURN_MOD turnMod);
  */
 void motorSetPwm(MOTOR* motor,uint16_t pwm);
 
-/**
- * \brief (尚不建議使用)設定非常規之馬達之速度
- *
- * \param motor MOTOR結構之指標
- * \param pwm 轉速(PWM)
- */
-void motorSetPwmPwm(MOTOR* motor,uint16_t pwm);
-
 #ifdef __cplusplus
 }
 #endif
@@ -100,6 +81,10 @@ void motorSetPwmPwm(MOTOR* motor,uint16_t pwm);
 
 /**
  * # 更新紀錄：
+ *
+ * ## v2.1.0
+ * - 更新更新了資料夾結構以及新增了一些檔案以符合arduino函式庫的規範。
+ * - 暫時刪除了非常規函式(`PwmPwm`後綴等)的支持。
  *
  * ## v2.0.3
  * - 2.0.2版本並沒有修好`motorSetPwm`，現在應該修好了(小聲...)。
