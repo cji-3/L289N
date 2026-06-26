@@ -1,0 +1,14 @@
+# Data Types (類別與結構體型態 - 顯示為橘色/粗體)
+MOTOR	KEYWORD1
+
+# Constants (常數 - 顯示為藍色/明亮色)
+CW	LITERAL1
+CCW	LITERAL1
+STOP	LITERAL1
+
+# Functions (函式名稱 - 顯示為藍色)
+motorCreate	KEYWORD2
+motorCreatePwm	KEYWORD2
+motorInit	KEYWORD2
+motorSet	KEYWORD2
+motorSetPwm	KEYWORD2

@@ -28,7 +28,7 @@ MOTOR* motor=NULL; // 宣告一個指向馬達物件的指標，初始值為NULL
 
 void setup() {
   motor = motorCreatePwm(2, 3, 4); // 建立一個帶有PWM控制的馬達物件，腳位為2、3和4
-  Init(motor); // 初始化馬達物件
+  motorInit(motor); // 初始化馬達物件
 }
 
 void loop() {
